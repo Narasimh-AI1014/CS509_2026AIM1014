@@ -36,20 +36,20 @@ To orchestrate and evaluate the performance of structural algorithms from a sing
 ### 1. Compilation
 Build the test execution wrapper utilizing the updated modern compiler flags:
 ```bash
-g++ common_wrapper/wrapper.cpp -o program
+g++ common_wrapper/wrapper.cpp -o assignment
 ```
 
 ### 2. Execution
 Run the compiled executable application directly from your main terminal:
 ```bash
-./program 
+./assignment
 ```
 *(On standard native Windows Command Prompt environments, execute via `program.exe`)*
 
 ---
 
 ## 📄 Test File Format Specifications
-Every test module configuration file situated inside the `tests/` directory represents exactly one test instance matching the structural input schema layout parsed sequentially by `std::cin`:
+Test cases storing in test_xx.txt format file
 
 ```text
 [M_ROWS]                                         <- Number of Rows (Matrix 1)
@@ -81,7 +81,7 @@ Every test module configuration file situated inside the `tests/` directory repr
 ---
 
 ## 📊 Algorithmic Performance Evaluation Matrix
-The dynamic complexity results tracked down to isolated algorithmic block executions (excluding OS compilation metrics and basic file I/O streams) are structured below:
+The comparison of the two programs simple 3 loops matrix multiplication and tilling method mulitplication.
 
 | Assignment Code | Target Input File | Matrix1  | Matrix 2 | Output  | Simple Three Loops Time Complexity Runtime (ms) | Tilling Method |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -111,18 +111,10 @@ The wrapper folder is main folder which contains a wrapper.cpp for handling all 
                                                                          |
                                                              ---------------------------------------
                                                              |   running wrapper.cpp               |
-                                                             |  creating assignment_01_exectue.exe |
+                                                             |  creating assignment.exe            |
                                                              --------------------------------------
                                                                         |
-                                                             
-                                                -------------------------------------------------------
-                                                |                                                      |
-                                --------------------------------------------                  -------------------------------------
-                                | 1. Matrix Multiplication (Simple 3 loops) |                 |  Tilling Method                    |
-                                ---------------------------------------------                 --------------------------------------
-                                                |                                                      |
-                                ---------------------------------------------                 ----------------------------------------
-                                |  running assignment_01_exectue_01.exe     |                 | running assignment_01_exectue_02.exe |
-                                ---------------------------------------------                 ----------------------------------------
+                                                                        |-----> Assingment_01--->|-----> 1. MatrixMultiplication simple loops
+                                                                        |                        |-----> 2. Tilling Method
 ```
 
