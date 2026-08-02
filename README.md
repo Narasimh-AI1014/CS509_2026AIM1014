@@ -85,9 +85,9 @@ The dynamic complexity results tracked down to isolated algorithmic block execut
 
 | Assignment Code | Evaluated Method / Strategy | Target Input File | Matrix1  | Matrix 2 | Output  | Measured Algorithm Complexity Runtime (ms) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Assignment 01** | Simple Nested Loops | `test_01.txt` | $2 \times 3$ | $3 \times 2$ | **0.004 ms** |
-| **Assignment 01** | Simple Nested Loops | `test_02.txt` | $3 \times 3$ | $3 \times 3$ | **0.003 ms** |
-| **Assignment 01** | Simple Nested Loops | `test_03.txt` | $4 \times 4$ | $4 \times 4$ | **0.006 ms** |
-| **Assignment 01** | Simple Nested Loops | `test_04.txt` | $5 \times 5$ | $5 \times 5$ | **0.008 ms** |
-| **Assignment 01** | Simple Nested Loops | `test_05.txt` | $6 \times 6$ | $6 \times 6$ | **0.008 ms** |
-| **Assignment 01** | Simple Nested Loops | `test_06.txt` | $7 \times 7$ | $7 \times 7$ | **0.015 ms** |
+| **Assignment 01** | Simple Nested Loops | `test_01.txt` | $2 \times 3$ | $3 \times 2$ | $2 \times 2$ |   **0.004 ms**  |
+| **Assignment 01** | Simple Nested Loops | `test_02.txt` | $3 \times 3$ | $3 \times 3$ | $3 \times 3$ | **0.003 ms**    |
+| **Assignment 01** | Simple Nested Loops | `test_03.txt` | $4 \times 4$ | $4 \times 4$ | $4 \times 4$ | **0.006 ms**    |
+| **Assignment 01** | Simple Nested Loops | `test_04.txt` | $5 \times 5$ | $5 \times 5$ | $5 \times 5$ |**0.008 ms**     |
+| **Assignment 01** | Simple Nested Loops | `test_05.txt` | $6 \times 6$ | $6 \times 6$ | $6 \times 6$ | **0.008 ms**    |
+| **Assignment 01** | Simple Nested Loops | `test_06.txt` | $7 \times 7$ | $7 \times 7$ | $7 \times 7$ | **0.015 ms**    |
