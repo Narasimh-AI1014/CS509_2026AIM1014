@@ -1,38 +1,93 @@
-Course : CS509 (Post Graduation Software Lab)
-Name : Muppuri Malyadri Lakshmi Narasimha
-ID : 2026AIM1014
-Programming Language : c ++(26) 
-Tools : vs code
+# CS509: Post Graduation Software Lab
 
-Master
-|---> common_wrapper
-|       |---> wrapper.cpp // Running assignment programs from this file.
-|
-|---> driver
-|       |---> Equip with algorithm like function of algorithm.
-|
-|---> src
-|      |---> Providing input to driver methods or functions.
-|
-|---> tests
-|      |---> testcases are available format of the test case file is example: test_xx.txt (xx-numerical number).
-|
-|---> README.md (contains information of the repository.)
+## 👤 Student Information
+* **Name:** Muppuri Malyadri Lakshmi Narasimha
+* **ID:** 2026AIM1014
+* **Course:** CS509 (Post Graduation Software Laboratory)
+* **Language Platform:** C++ (ISO C++26 Standard)
+* **Development Environment:** Visual Studio Code (VS Code)
 
+---
 
+## 📂 Project Directory Structure
+The repository is organized into distinct, decoupled structural layers separating the automated test runner, algorithm drivers, data parsing modules, and individual test cases.
 
-Running Program:
-  --> g++ wrapper.cpp -o program
-  --> program.exe
+```text
+Master/
+├── common_wrapper/
+│   └── wrapper.cpp          # Automated test suite controller & benchmark runner
+├── driver/
+│   └── [algorithm].cpp      # Implementation files hosting core optimization algorithms
+├── src/
+│   └── [module].cpp         # Source scripts passing and managing data feeding driver methods
+├── tests/
+│   ├── test_01.txt          # Sequential evaluation text matrices
+│   ├── test_02.txt          
+│   └── test_03.txt          
+└── README.md                # Repository documentation and comprehensive execution matrix
+```
 
-Test case file format:
-[M_ROWS]
-[K_COLS]
-[K_ROWS_M2]
-[N_COLS_M2]
+---
+
+## ⚙️ Compilation & Execution
+
+To orchestrate and evaluate the performance of structural algorithms from a single terminal workspace, compile and invoke the global automation test wrapper:
+
+### 1. Compilation
+Build the test execution wrapper utilizing the updated modern compiler flags:
+```bash
+g++ -std=c++26 common_wrapper/wrapper.cpp -o program
+```
+
+### 2. Execution
+Run the compiled executable application directly from your main terminal:
+```bash
+./program
+```
+*(On standard native Windows Command Prompt environments, execute via `program.exe`)*
+
+---
+
+## 📄 Test File Format Specifications
+Every test module configuration file situated inside the `tests/` directory represents exactly one test instance matching the structural input schema layout parsed sequentially by `std::cin`:
+
+```text
+[M_ROWS]                                         <- Number of Rows (Matrix 1)
+[K_COLS]                                         <- Number of Columns (Matrix 1)
+[K_ROWS_M2]                                      <- Number of Rows (Matrix 2) [Must equal K_COLS]
+[N_COLS_M2]                                      <- Number of Columns (Matrix 2)
 [Matrix 1 - Row 1 Elements separated by spaces]
 [Matrix 1 - Row 2 Elements separated by spaces]
 ...
 [Matrix 2 - Row 1 Elements separated by spaces]
 [Matrix 2 - Row 2 Elements separated by spaces]
 ...
+```
+
+### Raw Sample Target Array Vector Input (`test_01.txt`)
+```text
+3
+3
+3
+3
+1 2 3
+4 5 6
+7 8 9
+1 0 0
+0 1 0
+0 0 1
+```
+
+---
+
+## 📊 Algorithmic Performance Evaluation Matrix
+The dynamic complexity results tracked down to isolated algorithmic block executions (excluding OS compilation metrics and basic file I/O streams) are structured below:
+
+| Assignment Code | Evaluated Method / Strategy | Target Input File | Input Dimension ($M \times N$) | Measured Algorithm Complexity Runtime (ms) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Assignment 01** | Simple Nested Loops | `test_01.txt` | $3 \times 3$ | *[Populate Time]* |
+| **Assignment 01** | Simple Nested Loops | `test_02.txt` | $4 \times 4$ | *[Populate Time]* |
+| **Assignment 01** | Simple Nested Loops | `test_03.txt` | $5 \times 5$ | *[Populate Time]* |
+| **Assignment 01** | Tiling / Blocking Optimization | `test_01.txt` | $3 \times 3$ | *[Populate Time]* |
+| **Assignment 01** | Tiling / Blocking Optimization | `test_02.txt` | $4 \times 4$ | *[Populate Time]* |
+| **Assignment 01** | Tiling / Blocking Optimization | `test_03.txt` | $5 \times 5$ | *[Populate Time]* |
