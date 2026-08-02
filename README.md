@@ -36,13 +36,13 @@ To orchestrate and evaluate the performance of structural algorithms from a sing
 ### 1. Compilation
 Build the test execution wrapper utilizing the updated modern compiler flags:
 ```bash
-g++ -std=c++26 common_wrapper/wrapper.cpp -o program
+g++ common_wrapper/wrapper.cpp -o program
 ```
 
 ### 2. Execution
 Run the compiled executable application directly from your main terminal:
 ```bash
-./program
+./program 
 ```
 *(On standard native Windows Command Prompt environments, execute via `program.exe`)*
 
@@ -83,11 +83,46 @@ Every test module configuration file situated inside the `tests/` directory repr
 ## 📊 Algorithmic Performance Evaluation Matrix
 The dynamic complexity results tracked down to isolated algorithmic block executions (excluding OS compilation metrics and basic file I/O streams) are structured below:
 
-| Assignment Code | Evaluated Method / Strategy | Target Input File | Matrix1  | Matrix 2 | Output  | Measured Algorithm Complexity Runtime (ms) |
+| Assignment Code | Target Input File | Matrix1  | Matrix 2 | Output  | Simple Three Loops Time Complexity Runtime (ms) | Tilling Method |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Assignment 01** | Simple Nested Loops | `test_01.txt` | $2 \times 3$ | $3 \times 2$ | $2 \times 2$ |   **0.004 ms**  |
-| **Assignment 01** | Simple Nested Loops | `test_02.txt` | $3 \times 3$ | $3 \times 3$ | $3 \times 3$ | **0.003 ms**    |
-| **Assignment 01** | Simple Nested Loops | `test_03.txt` | $4 \times 4$ | $4 \times 4$ | $4 \times 4$ | **0.006 ms**    |
-| **Assignment 01** | Simple Nested Loops | `test_04.txt` | $5 \times 5$ | $5 \times 5$ | $5 \times 5$ |**0.008 ms**     |
-| **Assignment 01** | Simple Nested Loops | `test_05.txt` | $6 \times 6$ | $6 \times 6$ | $6 \times 6$ | **0.008 ms**    |
-| **Assignment 01** | Simple Nested Loops | `test_06.txt` | $7 \times 7$ | $7 \times 7$ | $7 \times 7$ | **0.015 ms**    |
+| **Assignment 01**  | `test_01.txt`  | $2 \times 3$       | $3 \times 2$       | $2 \times 2$       | **0.002 ms**    |  **0.004 ms**    |  
+| **Assignment 01**  | `test_02.txt`  | $3 \times 3$       | $3 \times 3$       | $3 \times 3$       | **0.003 ms**    |  **0.003 ms**    |
+| **Assignment 01**  | `test_03.txt`  | $4 \times 4$       | $4 \times 4$       | $4 \times 4$       | **0.006 ms**    |  **0.009 ms**    |
+| **Assignment 01**  | `test_04.txt`  | $5 \times 5$       | $5 \times 5$       | $5 \times 5$       | **0.010 ms**    |  **0.014 ms**    |
+| **Assignment 01**  | `test_05.txt`  | $6 \times 6$       | $6 \times 6$       | $6 \times 6$       | **0.008 ms**    |  **0.013 ms**    |
+| **Assignment 01**  | `test_06.txt`  | $7 \times 7$       | $7 \times 7$       | $7 \times 7$       | **0.012 ms**    |  **0.009 ms**    |
+| **Assignment 01**  | `test_07.txt`  | $100 \times 100$   | $100 \times 100$   | $100 \times 100$   | **25.144 ms**   |  **15.823 ms**   |
+| **Assignment 01**  | `test_08.txt`  | $200 \times 200$   | $200 \times 200$   | $200 \times 200$   | **194.492 ms**  |  **136.256 ms**  |
+| **Assignment 01**  | `test_09.txt`  | $300 \times 300$   | $300 \times 300$   | $300 \times 300$   | **690.729 ms**  |  **461.695 ms**  |
+| **Assignment 01**  | `test_10.txt`  | $400 \times 400$   | $400 \times 400$   | $400 \times 400$   | **1652.09 ms**  |  **1097.24 ms**  |
+| **Assignment 01**  | `test_11.txt`  | $500 \times 500$   | $500 \times 500$   | $500 \times 500$   | **3137.36 ms**  |  **2251.06 ms**  |
+| **Assignment 01**  | `test_12.txt`  | $1000 \times 1000$ | $1000 \times 1000$ | $1000 \times 1000$ | **25695.1 ms**  |  **16880 ms**    |
+| **Assignment 01**  | `test_13.txt`  | $2000 \times 2000$ | $2000 \times 2000$ | $2000 \times 2000$ | **370444.0 ms** |  **167880 ms**   |
+
+
+
+## About common-wrapper Folder
+The wrapper folder is main folder which contains a wrapper.cpp for handling all assignment programs.
+
+```text
+                                                              ------------------------
+                                                              | Flow of the Program  |
+                                                              ------------------------
+                                                                         |
+                                                             ---------------------------------------
+                                                             |   running wrapper.cpp               |
+                                                             |  creating assignment_01_exectue.exe |
+                                                             --------------------------------------
+                                                                        |
+                                                             
+                                                -------------------------------------------------------
+                                                |                                                      |
+                                --------------------------------------------                  -------------------------------------
+                                | 1. Matrix Multiplication (Simple 3 loops) |                 |  Tilling Method                    |
+                                ---------------------------------------------                 --------------------------------------
+                                                |                                                      |
+                                ---------------------------------------------                 ----------------------------------------
+                                |  running assignment_01_exectue_01.exe     |                 | running assignment_01_exectue_02.exe |
+                                ---------------------------------------------                 ----------------------------------------
+```
+
