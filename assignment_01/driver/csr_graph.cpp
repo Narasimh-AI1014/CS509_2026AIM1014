@@ -31,18 +31,18 @@ void csrGraph(vector<edgeList>& edges,int v,int e){
     }
     
 
-    for(int i=0;i<=v;i++){
-        cout<<arrayOfNodes[i]<<"\t";
-    }
-    cout<<endl;
-    cout<<"child : ";
-    for(int i=0;i<e;i++){
-        cout<<colIndex[i]<<"\t";
-    }
-    cout<<endl<<"weight : ";
-    for(int i=0;i<e;i++){
-        cout<<weight[i]<<"\t";
-    }
-    cout<<endl;
+    // for(int i=0;i<=v;i++){
+    //     cout<<arrayOfNodes[i]<<"\t";
+    // }
+    // cout<<endl;
+    // cout<<"child : ";
+    // for(int i=0;i<e;i++){
+    //     cout<<colIndex[i]<<"\t";
+    // }
+    // cout<<endl<<"weight : ";
+    // for(int i=0;i<e;i++){
+    //     cout<<weight[i]<<"\t";
+    // }
+    // cout<<endl;
     return;
 }

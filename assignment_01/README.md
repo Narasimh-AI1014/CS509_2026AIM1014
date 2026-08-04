@@ -15,25 +15,16 @@ The repository is organized into distinct, decoupled structural layers separatin
 ```text
 Master/
 ├── common_wrapper/
-│   └── wrapper.cpp # Automated test suite controller & benchmark runner
-|   └── assignment.exe # Running All assignment files.
-├── Assignment_01/
-    ├── test_01.txt          # Sequential evaluation text matrices
-    ├── test_02.txt          
-    └── test_03.txt     
-    ├── driver/
-    │   └── [algorithm].cpp      # Implementation files hosting core optimization algorithms
-    ├── src/
-    │   └── [module].cpp         # Source scripts passing and managing data feeding driver methods
-    ├── tests/
-    │   ├── test_01.txt          # Sequential evaluation text matrices
-    │   ├── test_02.txt          
-    │   └── test_03.txt
-    ├── csrtests/ # for graph test cases
-        ├── test_01.txt          # Sequential evaluation text matrices
-        ├── test_02.txt          
-        └── test_03.txt 
-    └── README.md                # Repository documentation and comprehensive execution matrix
+│   └── wrapper.cpp          # Automated test suite controller & benchmark runner
+├── driver/
+│   └── [algorithm].cpp      # Implementation files hosting core optimization algorithms
+├── src/
+│   └── [module].cpp         # Source scripts passing and managing data feeding driver methods
+├── tests/
+│   ├── test_01.txt          # Sequential evaluation text matrices
+│   ├── test_02.txt          
+│   └── test_03.txt          
+└── README.md                # Repository documentation and comprehensive execution matrix
 ```
 
 ---
