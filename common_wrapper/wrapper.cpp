@@ -31,6 +31,7 @@ int main(){
             cout<<"=================================================";cout<<endl;
             cout<<"||  1. Matrix Multiplication simple loops      ||";cout<<endl;
             cout<<"||  2. Tilling Method                          ||";cout<<endl;
+            cout<<"||  3. CSR(Compressed Parse Graph)             ||";cout<<endl; 
             cout<<"=================================================";cout<<endl;
 
             int choice;
@@ -104,6 +105,39 @@ int main(){
                         
                         
                         break;
+                }
+                case 3:{
+
+                        std::string execute = "C:/Users/muppu/OneDrive/Desktop/CS509/Individual/assignment_01/assignment_01_exectue_03";
+
+                        std::string drive = "C:/Users/muppu/OneDrive/Desktop/CS509/Individual/assignment_01/driver/csr_graph.cpp";
+                        std::string src = "C:/Users/muppu/OneDrive/Desktop/CS509/Individual/assignment_01/src/csr_graph.cpp";
+                        std::string compiler = "g++ "+drive+" "+src+" -o "+execute;
+                       
+
+                        std::string test_folder = "C:/Users/muppu/OneDrive/Desktop/CS509/Individual/assignment_01/csrtest";
+
+                        
+                        std::cout<<"compiling program....";
+                        system(compiler.c_str());
+
+                        // start storing the start time
+                        
+                        int i=1;
+                        for(const auto& entry: std::filesystem::directory_iterator(test_folder)){
+                            if(entry.is_regular_file()){
+
+                                
+                                std::string run = execute +" < "+ entry.path().string();
+                                system(run.c_str()); 
+                                i+=1;
+                            }
+                            
+                        }  
+                        
+                        
+                        break;
+
                 }
                 default:{
                         cout<<"Unknow Operation";
