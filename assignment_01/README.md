@@ -9,7 +9,7 @@
 
 ---
 
-## 📂 Project Directory Structure
+## 📂 AssignmentDirectory Structure
 The repository is organized into distinct, decoupled structural layers separating the automated test runner, algorithm drivers, data parsing modules, and individual test cases.
 
 ```text
