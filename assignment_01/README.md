@@ -99,6 +99,16 @@ The comparison of the two programs simple 3 loops matrix multiplication and till
 | **Assignment 01**  | `test_12.txt`  | $1000 \times 1000$ | $1000 \times 1000$ | $1000 \times 1000$ | **25695.1 ms**  |  **16880 ms**    |
 | **Assignment 01**  | `test_13.txt`  | $2000 \times 2000$ | $2000 \times 2000$ | $2000 \times 2000$ | **370444.0 ms** |  **167880 ms**   |
 
+## 📊 Algorithmic Performance for 
+
+
+| Assignment Code | Target Input File | vertices | edges | Runtime (ms)  |
+| :--- | :--- | :--- | :--- | :--- | 
+| **Assignment 01**  | `test_01.txt`  | 10       | 20       |  0.004 ms | 
+| **Assignment 01**  | `test_02.txt`  | 100      | 200      |  0.032 ms | 
+| **Assignment 01**  | `test_03.txt`  | 50000    |  100000  |  0.692 ms | 
+| **Assignment 01**  | `test_04.txt`  |  10000   | 20000    |  5.60 ms  | 
+| **Assignment 01**  | `test_05.txt`  |  100000  | 399996   |  11.791 ms| 
 
 
 ## About common-wrapper Folder
@@ -116,5 +126,6 @@ The wrapper folder is main folder which contains a wrapper.cpp for handling all 
                                                                         |
                                                                         |-----> Assingment_01--->|-----> 1. MatrixMultiplication simple loops
                                                                         |                        |-----> 2. Tilling Method
+                                                                                                 |-----> 3. CSR Graph
 ```
 
