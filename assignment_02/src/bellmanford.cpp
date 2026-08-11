@@ -2,6 +2,8 @@
 #include <vector>
 using namespace std;
 
+const int INF = 1e9;
+void bellmanFord(vector<int>& vertex,vector<int>& child,vector<int>& weight,int v,int e,int source);
 void adjListToCSR(vector<vector<pair<int,int>>>& adjList,vector<int>& vertex,vector<int>& child,vector<int>& weight,int v){
     
     int i=0,j=0;
@@ -57,6 +59,7 @@ int main(){
     vector<int> child(e,0);
     vector<int> weight(e,0);
     adjListToCSR(adjList,vertex,child,weight,v);
+    bellmanFord(vertex,child,weight,v,e,0);
     cout << "\n--- CSR Graph Representation ---\n";
     cout << "Vertex Array: ";
     for (int i = 0; i <= v; i++) {
