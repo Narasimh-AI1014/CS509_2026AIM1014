@@ -53,15 +53,15 @@ void bellmanFord(vector<int>& vertex,vector<int>& child,vector<int>& weight,int 
         cout<<endl;
         return;
     }
-    cout << "\n--- Shortest Paths from Source " << source << " ---\n";
-    for (int i = 0; i < v; i++) {
-        cout << "To Vertex " << i << " -> Cost: ";
-        if (d[i] == INF) {
-            cout << "INF | Path: No Path Exists\n";
-        } else {
-            cout << d[i] << " | Path: [ ";
-            printPathSequence(i, parent); 
-            cout << "]\n";
-        }
-    }
+    // cout << "\n--- Shortest Paths from Source " << source << " ---\n";
+    // for (int i = 0; i < v; i++) {
+    //     cout << "To Vertex " << i << " -> Cost: ";
+    //     if (d[i] == INF) {
+    //         cout << "INF | Path: No Path Exists\n";
+    //     } else {
+    //         cout << d[i] << " | Path: [ ";
+    //         printPathSequence(i, parent); 
+    //         cout << "]\n";
+    //     }
+    // }
 }

@@ -11,7 +11,8 @@ int main(){
     while(true){
         cout<<"=================================";cout<<endl;
         cout<<"||  1. Assignment_01           ||";cout<<endl;
-        cout<<"||  2. Exit                    ||";cout<<endl;
+        cout<<"||  2. Assignment_02           ||";cout<<endl;
+        cout<<"||  3. Exit                    ||";cout<<endl;
         cout<<"=================================";cout<<endl;
         cout<<endl;
         cout<<endl;
@@ -139,6 +140,7 @@ int main(){
                         break;
 
                 }
+
                 default:{
                         cout<<"Unknow Operation";
                         break;
@@ -146,7 +148,92 @@ int main(){
 
             }
         }
-        if(ass_no==2){
+        else if(ass_no==2){
+            cout<<endl<<endl;
+            cout<<"<<=============================================>>";cout<<endl;
+            cout<<"=================================================";cout<<endl;
+            cout<<"||  1. BellmanFord                             ||";cout<<endl;
+            cout<<"||  2. Folyd Warshall                          ||";cout<<endl;
+            cout<<"=================================================";cout<<endl;
+            
+
+            int choice;
+            cout<<"choose program : ";
+            cin>>choice;
+            cout<<endl;
+            
+
+            switch(choice){
+
+                case 1: {
+                        // std::string test = "C:/Users/muppu/OneDrive/Desktop/CS509/Individual/assignment_01/tests/test_01.txt";
+                        std::string execute = "C:/Users/muppu/OneDrive/Desktop/CS509/Individual/assignment_02/assignment_02_exectue_01";
+
+                        std::string drive = "C:/Users/muppu/OneDrive/Desktop/CS509/Individual/assignment_02/driver/bellmanford.cpp";
+                        std::string src = "C:/Users/muppu/OneDrive/Desktop/CS509/Individual/assignment_02/src/bellmanford.cpp";
+                        std::string csr = "C:/Users/muppu/OneDrive/Desktop/CS509/Individual/assignment_02/src/csrGraph.cpp";
+                        std::string compiler = "g++ "+drive+" "+src+" "+csr+" -o "+execute;
+                       
+
+                        std::string test_folder = "C:/Users/muppu/OneDrive/Desktop/CS509/Individual/assignment_02/tests/tests_bellman";
+
+                        
+                        std::cout<<"compiling program....";
+                        system(compiler.c_str());
+
+                        // start storing the start time
+                        
+                        int i=1;
+                        for(const auto& entry: std::filesystem::directory_iterator(test_folder)){
+                            if(entry.is_regular_file()){
+
+                                
+                                std::string run = execute +" < "+ entry.path().string();
+                                system(run.c_str()); 
+                                i+=1;
+                            }
+                            
+                        }  
+                        
+                        
+                        break;
+                }
+                case 2: {
+                        // std::string test = "C:/Users/muppu/OneDrive/Desktop/CS509/Individual/assignment_01/tests/test_01.txt";
+                        std::string execute = "C:/Users/muppu/OneDrive/Desktop/CS509/Individual/assignment_02/assignment_02_exectue_02";
+
+                        std::string drive = "C:/Users/muppu/OneDrive/Desktop/CS509/Individual/assignment_02/driver/floyd_warshall.cpp";
+                        std::string src = "C:/Users/muppu/OneDrive/Desktop/CS509/Individual/assignment_02/src/floyd_warshall.cpp";
+                        std::string compiler = "g++ "+drive+" "+src+" -o "+execute;
+                       
+
+                        std::string test_folder = "C:/Users/muppu/OneDrive/Desktop/CS509/Individual/assignment_02/tests/tests_foyld";
+
+                        
+                        std::cout<<"compiling program....";
+                        system(compiler.c_str());
+
+                        // start storing the start time
+                        
+                        int i=1;
+                        for(const auto& entry: std::filesystem::directory_iterator(test_folder)){
+                            if(entry.is_regular_file()){
+
+                                
+                                std::string run = execute +" < "+ entry.path().string();
+                                system(run.c_str()); 
+                                i+=1;
+                            }
+                            
+                        }  
+                        
+                        
+                        break;
+                }
+            }    
+
+        }
+        else if(ass_no==3){
             cout<<"Exiting from program.";
             cout<<endl;
             break;
