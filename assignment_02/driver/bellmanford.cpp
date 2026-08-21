@@ -8,7 +8,7 @@ void printPathSequence(int target, const vector<int>& parent) {
     printPathSequence(parent[target], parent);
     cout << target << " ";
 }
-void bellmanFord(vector<int>& vertex,vector<int>& child,vector<int>& weight,int v,int e,int source){
+void bellmanFord(vector<int>& vertex,vector<int>& child,vector<int>& weight,int v,int source){
     vector<int> d(v,INF);
     d[source]=0;
     

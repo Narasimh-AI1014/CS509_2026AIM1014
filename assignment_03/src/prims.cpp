@@ -1,51 +1,49 @@
-#include<iostream>
-#include<chrono>
-#include<fstream>
-#include<vector>
-#include "csr_graph.h"
+#include <bits/stdc++.h>
+#include "../../assignment_01/src/csr_graph.h"
+#include "../../assignment_01/driver/csr_graph.cpp"
 #include"../src/prims.h"
 
 using namespace std;
 int main()
 {
-    int v,e;
-    cout<<"enter the number of vertices";
-    cin>>v;
-    cout<<"enter the number of edges";
-    cin>>e;
-    vector<edgelist> edges;
-    for(int i=0;i<v;i++)
-    {
-        int s,degree,destination,weight;
-        cin>>s>>degree;
-        for(int j=0;j<degree;j++)
-        {
-            cin>>destination>>weight;
-            edges.push_back({s,destination,weight});
-        }
+    char graph_mode_char;
+    if (!(cin >> graph_mode_char)) {
+        return 0;
     }
-    vector<int> row_pointer;
-    vector<int> colIndex;
-    vector<int> weight;
-    csrgraph(edges,v,edges.size(),row_pointer,colIndex,weight);
-    vector<mstedge> mst;
 
-    int totalweight=0;
+    bool is_undirected = (graph_mode_char == 'U' || graph_mode_char == 'u');
+
+    vector<edgeList> edges;
+    int u, v, w;
+    int max_vertex_id = -1;
+
+    while (cin >> u >> v >> w) {
+        edgeList edge = {u, v, w};
+        edges.push_back(edge);
+        max_vertex_id = max({max_vertex_id, u, v});
+    }
+
+    if (edges.empty()) {
+        return 0;
+    }
+    int total_vertices = max_vertex_id+1;
+    int totalweight = 0;
+    vector<mstedge> mst;
+    CSRResult result = csrGraph(edges, max_vertex_id, is_undirected);
 
     auto start=chrono::high_resolution_clock::now();
 
-    prim(v,row_pointer,colIndex,weight,mst,totalweight);
+    prim(total_vertices,result.row_ptr,result.col_idx,result.values,mst,totalweight);
 
     auto end=chrono::high_resolution_clock::now();
     
     double time = chrono::duration_cast<chrono::microseconds>(end-start).count()/1000.0;
 
-    cout<<"the mst is" <<endl;
-    // for(auto &edge:mst)
-    // {
-    //     cout<<edge.source<<" "<<edge.destination<<" "<<edge.weight<<endl;
-    // }
-    cout<<"the cost of mst is"<<":"<<totalweight<<endl;
-    cout<<"the execution time is "<<":"<<time<<"ms"<<endl;
+    
+    for(auto &edge:mst)
+    {
+        cout<<edge.source<<" "<<edge.destination<<" "<<edge.weight<<endl;
+    }
+   cout<<endl<<"Weight : "<<totalweight<< " time : "<< time<<endl;
 
 }

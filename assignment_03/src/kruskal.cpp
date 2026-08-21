@@ -1,49 +1,59 @@
-#include<iostream>
-#include<chrono>
-#include<fstream>
-#include<vector>
-#include "csr_graph.h"
-#include"../src/kruskal.h"
+#include <iostream>
+#include <vector>
+#include <chrono>
+#include <algorithm>
+#include "../../assignment_01/src/csr_graph.h"
+#include "../../assignment_01/driver/csr_graph.cpp"
+#include "../src/kruskal.h"
+
 using namespace std;
-int main()
-{
-    int v,e;
-    cout<<"enter the number of vertices";
-    cin>>v;
-    cout<<"enter the number of edges";
-    cin>>e;
-    vector<edgelist> edges;
-    for(int i=0;i<v;i++)
-    {
-        int s,degree,destination,weight;
-        cin>>s>>degree;
-        for(int j=0;j<degree;j++)
-        {
-            cin>>destination>>weight;
-            edges.push_back({s,destination,weight});
-        }
+
+int main() {
+    char graph_mode_char;
+    if (!(cin >> graph_mode_char)) {
+        return 0;
     }
-    vector<int> row_pointer;
-    vector<int> colIndex;
-    vector<int> weight;
-    csrgraph(edges,v,edges.size(),row_pointer,colIndex,weight);
+
+    bool is_undirected = (graph_mode_char == 'U' || graph_mode_char == 'u');
+
+    vector<edgeList> edges;
+    int u, input_v, w;
+    int max_vertex_id = -1;
+
+    // Read the graph until EOF stream ends
+    while (cin >> u >> input_v >> w) {
+        edgeList edge = {u, input_v, w};
+        edges.push_back(edge);
+        max_vertex_id = max({max_vertex_id, u, input_v});
+    }
+
+    if (edges.empty()) {
+        return 0;
+    }
+
+    int total_vertices = max_vertex_id + 1;
+
+    // Invoke CSR parsing script pipeline
+    CSRResult csr = csrGraph(edges, max_vertex_id, is_undirected);
+
     vector<mstedge> mst;
+    int totalweight = 0;
 
-    int totalweight=0;
+    auto start = chrono::high_resolution_clock::now();
 
-    auto start=chrono::high_resolution_clock::now();
+    kruskal(total_vertices, csr.row_ptr, csr.col_idx, csr.values, mst, totalweight);
 
-    kruskal(v,row_pointer,colIndex,weight,mst,totalweight);
+    auto end = chrono::high_resolution_clock::now();
+    double time = chrono::duration_cast<chrono::microseconds>(end - start).count() / 1000.0;
 
-    auto end=chrono::high_resolution_clock::now();
+    cout << "The MST is:" << endl;
+    for (auto &edge : mst) {
+        cout << edge.u << " " << edge.v << " " << edge.weight << endl;
+    }
     
-    double time = chrono::duration_cast<chrono::microseconds>(end-start).count()/1000.0;
+    cout << "========================================" << endl;
+    cout << "Weight : " << totalweight << " | Time : " << time << " ms." << endl;
+    cout << "========================================" << endl;
 
-    cout<<"the mst is" <<endl;
-    // for(auto &edge:mst)
-    // {
-    //     cout<<edge.source<<" "<<edge.destination<<" "<<edge.weight<<endl;
-    // }
-    cout<<"the cost of mst is"<<":"<<totalweight<<endl;
-    cout<<"the execution time is "<<":"<<time<<"ms"<<endl;
+    return 0;
 }
