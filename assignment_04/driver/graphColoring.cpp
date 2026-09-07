@@ -44,6 +44,15 @@ void graphColor(vector<int>& row_ptr,vector<int>& col_id,int n){
         currColor+=1;
     }
 
-    for(int i=0;i<n;i++) cout<<i<<" "<<color[i]<<endl;
+
+    cout<<"Greedy Vertex coloring"<<endl;
+    cout<<"Vertex colors : "<<endl;
+    int maxi = 0;
+    for(int i=0;i<n;i++){
+        cout<<i<<" "<<color[i]<<endl;
+        maxi = max(maxi,color[i]);
+    }
+    cout<<"Colors used : "<<maxi<<endl;
+    
     return;
 }

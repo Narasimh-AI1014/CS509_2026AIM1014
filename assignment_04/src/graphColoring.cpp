@@ -2,16 +2,41 @@
 using namespace std;
 void graphColor(vector<int>& row_ptr,vector<int>& col_id,int n);
 int main(){
-    int n = 5;
-    vector<int> row_ptr = {0,2,5,8,10,12};
-    vector<int> col_ind = {
-    1, 2,
-    0, 2,3,
-    0, 1, 4,
-    1, 4,
-    2, 3
-};
-    graphColor(row_ptr,col_ind,n);
+    int V,E;
 
+    cin>>V>>E;
+
+    vector<int> row_ptr(V+1,0);
+    vector<int> col_ind(2*E);
+    
+    int ind = 0;
+
+    for(int i=0;i<V;i++){
+        int u,degree;
+        cin>>u>>degree;
+        row_ptr[u+1] = row_ptr[u] + degree;
+
+        for(int j=0;j<degree;j++){
+            cin>>col_ind[ind++];
+        }
+    }
+
+    double d,tol;
+    int max_iter;
+    cin>>d>>tol;
+    cin>>max_iter;
+    auto start=chrono::high_resolution_clock::now();
+
+    graphColor(row_ptr,col_ind,V);
+
+    auto end=chrono::high_resolution_clock::now();
+    
+    double time = chrono::duration_cast<chrono::microseconds>(end-start).count()/1000.0;
+    cout<<"================================================"<<endl;
+    cout<<"||   Vertices : "<<V<<"                        ||"<<endl; 
+    cout<<"||   Run Time : "<<time<<"                     ||"<<endl;
+    cout<<"================================================="<<endl;
     return 0;
+    
+
 }

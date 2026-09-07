@@ -1,8 +1,10 @@
-void pageRank(vector<int>& row_ptr,vector<int>& col_ind,double d,double epsilon,int max_iter,int V) {
+#include <bits/stdc++.h>
+using namespace std;
+void pageRank(vector<int>& row_ptr,vector<int>& col_ind,int max_iter,int V,double d,double epsilon) {
 
     vector<double> pr(V,1.0/V);
     vector<double> new_pr(V);
-
+    bool flag = false;
     for(int iter=0;iter<max_iter;iter++) {
 
         double base = (1.0-d)/V;
@@ -48,13 +50,23 @@ void pageRank(vector<int>& row_ptr,vector<int>& col_ind,double d,double epsilon,
         pr.swap(new_pr);
         if(change <= epsilon) {
             cout<<"Converged after "<<iter+1<<"iterations\n";
+            flag = true;
             break;
         }
     }
 
     cout<<fixed<<setprecision(10);
 
+    cout <<"Algorithm : PageRank"<<endl;
+    cout<<d<<endl;
+    cout<<"Vertex ranks : "<<endl;
+    double sum = 0;
     for(int v=0;v<V;v++) {
         cout<<v<<" "<<pr[v]<<'\n';
+        sum+=pr[v];
     }
+    cout<<"Sum of ranks : "<<sum<<endl;
+    cout<<"Iterations : "<<max_iter<<endl;
+    cout<<"Converged : "<< (flag ?"True":"False")<<endl;
+
 }

@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-void pageRank(vector<int>& row_ptr,vector<int>& col_ind,double d,double epsilon,int max_iter,int V);
+void pageRank(vector<int>& row_ptr,vector<int>& col_ind,int max_iter,int V,double d,double epsilon);
 int main(){
     int V,E;
 
@@ -27,10 +27,13 @@ int main(){
     cin>>max_iter;
     auto start=chrono::high_resolution_clock::now();
 
-    pageRank(row_ptr,col_ind,d,tol,max_iter,V);
+    pageRank(row_ptr,col_ind,max_iter,V,d,tol);
 
     auto end=chrono::high_resolution_clock::now();
     
     double time = chrono::duration_cast<chrono::microseconds>(end-start).count()/1000.0;
+    cout<<"================================================"<<endl;
+    cout<<"||   Vertices : "<<V<<" Run Time : "<<time<<"   ||"<<endl;
+    cout<<"================================================="<<endl;
     return 0;
 }
